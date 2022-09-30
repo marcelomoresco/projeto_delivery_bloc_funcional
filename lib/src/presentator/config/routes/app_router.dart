@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:projeto_delivery_bloc/src/presentator/views/delivery_time/delivery_time.dart';
 import 'package:projeto_delivery_bloc/src/presentator/views/filter/filter_page.dart';
 import 'package:projeto_delivery_bloc/src/presentator/views/restaurant_details.dart/restaurant_details_page.dart';
-import '../../views/basket/basket_page.dart';
+import '../../../domain/entities/restaurant_model.dart';
+import '../../views/cart/cart_page.dart';
 import '../../views/checkout/checkout_page.dart';
 import '../../views/cupom/cupom_page.dart';
 import '../../views/home/home_page.dart';
@@ -18,8 +19,8 @@ class AppRouter {
         return HomePage.route();
       case LocationPage.routeName:
         return LocationPage.route();
-      case BasketPage.routeName:
-        return BasketPage.route();
+      case CartPage.routeName:
+        return CartPage.route();
       case CheckoutPage.routeName:
         return CheckoutPage.route();
       case CupomPage.routeName:
@@ -29,9 +30,11 @@ class AppRouter {
       case FilterPage.routeName:
         return FilterPage.route();
       case RestaurantDetailsPage.routeName:
-        return RestaurantDetailsPage.route();
+        return RestaurantDetailsPage.route(
+            restaurant: settings.arguments as Restaurant);
       case RestaurantListPage.routeName:
-        return RestaurantListPage.route();
+        return RestaurantListPage.route(
+            restaurants: settings.arguments as List<Restaurant>);
 
       default:
         return _errorRoute();

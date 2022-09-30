@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_delivery_bloc/src/presentator/views/components/restaurant_tags.dart';
 
 import '../../../domain/entities/restaurant_model.dart';
 
@@ -8,8 +9,11 @@ class RestaurantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return InkWell(
+      onTap: () {
+        Navigator.of(context)
+            .pushNamed('/restaurant-details', arguments: restaurant);
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -61,17 +65,7 @@ class RestaurantCard extends StatelessWidget {
                 SizedBox(
                   height: 5,
                 ),
-                Row(
-                  children: restaurant.tags
-                      .map((tag) => restaurant.tags.indexOf(tag) ==
-                              restaurant.tags.length - 1
-                          ? Text(
-                              tag,
-                              style: TextStyle(),
-                            )
-                          : Text('$tag, '))
-                      .toList(),
-                ),
+                RestaurantTags(restaurant: restaurant),
                 SizedBox(
                   height: 5,
                 ),
