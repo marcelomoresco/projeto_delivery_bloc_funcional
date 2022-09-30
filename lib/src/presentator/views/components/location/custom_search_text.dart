@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../blocs/place_autocomplete/autocomplete_bloc.dart';
+import '../../../blocs/place_autocomplete/autocomplete_bloc.dart';
 
 class CustomSearchLocation extends StatelessWidget {
   const CustomSearchLocation({

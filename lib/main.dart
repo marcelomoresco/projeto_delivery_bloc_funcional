@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:projeto_delivery_bloc/src/infra/repositories/geolocation/geolocation_repository.dart';
 import 'package:projeto_delivery_bloc/src/infra/repositories/places/places_repository.dart';
+import 'package:projeto_delivery_bloc/src/presentator/blocs/cart_bloc/cart_bloc.dart';
 import 'package:projeto_delivery_bloc/src/presentator/blocs/filter_bloc/filters_bloc.dart';
 import 'package:projeto_delivery_bloc/src/presentator/blocs/geolocation_bloc/geolocation_bloc.dart';
 import 'package:projeto_delivery_bloc/src/presentator/blocs/place_autocomplete/autocomplete_bloc.dart';
@@ -46,6 +47,12 @@ class MyApp extends StatelessWidget {
             create: (_) => FiltersBloc()
               ..add(
                 FiltersLoadEvent(),
+              ),
+          ),
+          BlocProvider<CartBloc>(
+            create: (_) => CartBloc()
+              ..add(
+                LoadCartEvent(),
               ),
           )
         ],

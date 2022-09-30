@@ -5,7 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../../blocs/geolocation_bloc/geolocation_bloc.dart';
 import '../../blocs/place_autocomplete/autocomplete_bloc.dart';
 import '../../blocs/place_bloc/place_bloc.dart';
-import '../components/custom_search_text.dart';
+import '../components/location/custom_search_text.dart';
 
 class LocationPage extends StatelessWidget {
   const LocationPage({super.key});

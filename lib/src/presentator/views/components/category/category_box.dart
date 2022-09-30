@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_delivery_bloc/src/domain/entities/category_model.dart';
 
-import '../../../domain/entities/restaurant_model.dart';
+import '../../../../domain/entities/restaurant_model.dart';
 
 class CategoryBox extends StatelessWidget {
   final Category category;

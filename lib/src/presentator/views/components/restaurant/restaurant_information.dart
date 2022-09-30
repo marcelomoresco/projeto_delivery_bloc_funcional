@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_delivery_bloc/src/presentator/views/components/restaurant_tags.dart';
+import 'package:projeto_delivery_bloc/src/presentator/views/components/restaurant/restaurant_tags.dart';
 
-import '../../../domain/entities/restaurant_model.dart';
+import '../../../../domain/entities/restaurant_model.dart';
 
 class RestaurantInformation extends StatelessWidget {
   final Restaurant restaurant;
@@ -13,10 +13,14 @@ class RestaurantInformation extends StatelessWidget {
       color: Colors.white,
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             restaurant.name,
-            style: const TextStyle(fontSize: 19),
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(
             height: 10,
@@ -26,8 +30,11 @@ class RestaurantInformation extends StatelessWidget {
             height: 10,
           ),
           Text(
-            '${restaurant.distance}km -- R\$${restaurant.deliveryPrice} preço do envio',
-            style: const TextStyle(fontSize: 19),
+            '${restaurant.distance}km De Distância & R\$ ${restaurant.deliveryPrice} Preço do Envio',
+            style: const TextStyle(fontSize: 15),
+          ),
+          const SizedBox(
+            height: 20,
           ),
           const Text(
             'Informações do Restaurante',
@@ -37,8 +44,7 @@ class RestaurantInformation extends StatelessWidget {
             height: 15,
           ),
           const Text(
-            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged',
-            style: const TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+            'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text',
           ),
         ],
       ),

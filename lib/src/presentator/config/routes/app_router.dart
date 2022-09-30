@@ -5,6 +5,7 @@ import 'package:projeto_delivery_bloc/src/presentator/views/restaurant_details.d
 import '../../../domain/entities/restaurant_model.dart';
 import '../../views/cart/cart_page.dart';
 import '../../views/checkout/checkout_page.dart';
+import '../../views/components/cart/edit_cart_page.dart';
 import '../../views/cupom/cupom_page.dart';
 import '../../views/home/home_page.dart';
 import '../../views/location/location_page.dart';
@@ -25,6 +26,8 @@ class AppRouter {
         return CheckoutPage.route();
       case CupomPage.routeName:
         return CupomPage.route();
+      case EditCartPage.routeName:
+        return EditCartPage.route();
       case DeliveryTimePage.routeName:
         return DeliveryTimePage.route();
       case FilterPage.routeName:

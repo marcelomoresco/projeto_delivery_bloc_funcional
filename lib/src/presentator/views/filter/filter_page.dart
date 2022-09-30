@@ -5,8 +5,8 @@ import 'package:projeto_delivery_bloc/src/domain/entities/category_model.dart';
 import '../../../domain/entities/price_model.dart';
 import '../../../domain/entities/restaurant_model.dart';
 import '../../blocs/filter_bloc/filters_bloc.dart';
-import '../components/custom_category_filter.dart';
-import '../components/custom_price_filter.dart';
+import '../components/filter/custom_category_filter.dart';
+import '../components/filter/custom_price_filter.dart';
 
 class FilterPage extends StatelessWidget {
   const FilterPage({super.key});

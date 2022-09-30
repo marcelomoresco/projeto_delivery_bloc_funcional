@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../domain/entities/promo_model.dart';
+import '../../../../domain/entities/promo_model.dart';
 
 class PromoBox extends StatelessWidget {
   final Promo promo;

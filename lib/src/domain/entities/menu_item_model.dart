@@ -58,7 +58,7 @@ class MenuItem extends Equatable {
       name: "Coca Cola",
       category: "Bebidas",
       description: "Refrigerante",
-      price: 55.99,
+      price: 2.99,
     ),
     MenuItem(
       id: 2,

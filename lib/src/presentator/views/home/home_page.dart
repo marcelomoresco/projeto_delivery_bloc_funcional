@@ -5,10 +5,10 @@ import 'package:projeto_delivery_bloc/src/domain/entities/category_model.dart';
 import 'package:projeto_delivery_bloc/src/domain/entities/restaurant_model.dart';
 
 import '../../../domain/entities/promo_model.dart';
-import '../components/category_box.dart';
-import '../components/food_search_box.dart';
-import '../components/promobox_custom.dart';
-import '../components/restaurant_card.dart';
+import '../components/category/category_box.dart';
+import '../components/restaurant/food_search_box.dart';
+import '../components/home/promobox_custom.dart';
+import '../components/restaurant/restaurant_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -48,64 +48,72 @@ class HomePage extends StatelessWidget {
         centerTitle: false,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 125,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: Promo.promos.length,
-                  itemBuilder: (context, index) {
-                    return PromoBox(
-                      promo: Promo.promos[index],
-                    );
-                  },
-                ),
-              ),
-            ),
-            const FoodSearchBox(),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 30,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: Category.categories.length,
-                  itemBuilder: (context, index) {
-                    return CategoryBox(category: Category.categories[index]);
-                  },
-                ),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Mais Avaliados",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+        scrollDirection: Axis.vertical,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: 125,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: Promo.promos.length,
+                    itemBuilder: (context, index) {
+                      return PromoBox(
+                        promo: Promo.promos[index],
+                      );
+                    },
                   ),
                 ),
               ),
-            ),
-            ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemCount: Restaurant.restaurants.length,
-                itemBuilder: (context, index) {
-                  return RestaurantCard(
-                    restaurant: Restaurant.restaurants[index],
-                  );
-                })
-          ],
+              const FoodSearchBox(),
+              const SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: SizedBox(
+                  height: 30,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: Category.categories.length,
+                    itemBuilder: (context, index) {
+                      return CategoryBox(category: Category.categories[index]);
+                    },
+                  ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "Mais Avaliados",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: Restaurant.restaurants.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: RestaurantCard(
+                        restaurant: Restaurant.restaurants[index],
+                      ),
+                    );
+                  })
+            ],
+          ),
         ),
       ),
     );

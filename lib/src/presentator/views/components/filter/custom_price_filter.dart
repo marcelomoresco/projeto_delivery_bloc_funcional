@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../domain/entities/price_model.dart';
-import '../../blocs/filter_bloc/filters_bloc.dart';
+import '../../../../domain/entities/price_model.dart';
+import '../../../blocs/filter_bloc/filters_bloc.dart';
 
 class CustomPriceFilter extends StatelessWidget {
   const CustomPriceFilter({super.key});

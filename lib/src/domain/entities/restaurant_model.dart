@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:projeto_delivery_bloc/src/domain/entities/menu_item_model.dart';
 
+import 'category_model.dart';
+
 class Restaurant extends Equatable {
   final int id;
   final String imageUrl;

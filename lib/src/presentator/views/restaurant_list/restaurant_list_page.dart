@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:projeto_delivery_bloc/src/presentator/views/components/restaurant_card.dart';
+import 'package:projeto_delivery_bloc/src/presentator/views/components/restaurant/restaurant_card.dart';
 
 import '../../../domain/entities/restaurant_model.dart';
 
