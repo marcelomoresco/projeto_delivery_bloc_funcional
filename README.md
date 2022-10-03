@@ -1,16 +1,20 @@
-# projeto_delivery_bloc
+<h1 align="center">App Delivery feito com Flutter e bloC</h1>
 
-A new Flutter project.
+<p align="center">Esse projeto é um delivery feito em Bloc para fins de estudos.</p>
 
-## Getting Started
+<p align="center">Status - Em Desenvolvimento, implementando o google para a localização dos restaurantes</p>
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+<br>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<!-- GIF-->
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![ezgif com-gif-maker (10)](https://user-images.githubusercontent.com/85464545/193496232-d30cf258-7ec0-4a7b-84a3-c3ad403c6caf.gif)
+
+
+
+### Autor
+
+Made with 💜 by Marcelo Moresco👋
+
+[![LinkedIn Badge](https://img.shields.io/badge/-marcelomoresco-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/marcelo-adriel-moresco-a32104179/)](https://www.linkedin.com/in/marcelo-adriel-moresco-a32104179/)
