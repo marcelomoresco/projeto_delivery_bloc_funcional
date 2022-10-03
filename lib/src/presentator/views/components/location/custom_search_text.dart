@@ -13,7 +13,7 @@ class CustomSearchLocation extends StatelessWidget {
     return BlocBuilder<AutocompleteBloc, AutocompleteState>(
       builder: (context, state) {
         if (state is AutocompleteLoadingState) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else if (state is AutocompleteLoadedState) {

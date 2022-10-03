@@ -13,7 +13,7 @@ class CustomCupomCartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 100,
+      height: 120,
       padding: const EdgeInsets.symmetric(horizontal: 30),
       margin: const EdgeInsets.only(top: 5),
       decoration: BoxDecoration(
@@ -38,7 +38,7 @@ class CustomCupomCartWidget extends StatelessWidget {
                             "Você tem um Cupom?",
                             style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 18,
+                                fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(
@@ -62,7 +62,7 @@ class CustomCupomCartWidget extends StatelessWidget {
                     : Text("Seu cupom já foi aplicado!",
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 18,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold));
               } else if (state is CartErrorState) {
                 return Center(

@@ -23,66 +23,80 @@ class FilterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Filter")),
-      bottomNavigationBar: BottomAppBar(
-          child: Container(
-        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          BlocBuilder<FiltersBloc, FiltersState>(
-            builder: (context, state) {
-              if (state is FiltersLoadingState) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
-              } else if (state is FilterLoadedState) {
-                return ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 50,
+      appBar: AppBar(
+        title: const Text("Filtrar"),
+        backgroundColor: Colors.deepPurple,
+        centerTitle: true,
+        elevation: 0,
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15),
+          child: BottomAppBar(
+              child: Container(
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              BlocBuilder<FiltersBloc, FiltersState>(
+                builder: (context, state) {
+                  if (state is FiltersLoadingState) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is FilterLoadedState) {
+                    return ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 50,
+                          ),
+                          backgroundColor: Colors.deepPurple,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15))),
+                      onPressed: () {
+                        var categories = state.filter.categoryFilter
+                            .where((filter) => filter.value)
+                            .map((filter) => filter.category.name)
+                            .toList();
+
+                        var price = state.filter.priceFilter
+                            .where((filter) => filter.value)
+                            .map((filter) => filter.price.price)
+                            .toList();
+                        List<Restaurant> restaurant = Restaurant.restaurants
+                            .where(
+                              (restaurant) => categories.any(
+                                (category) =>
+                                    restaurant.tags.contains(category),
+                              ),
+                            )
+                            .where(
+                              (restaurant) => price.any(
+                                (price) =>
+                                    restaurant.priceCategory.contains(price),
+                              ),
+                            )
+                            .toList();
+
+                        Navigator.of(context).pushNamed('/restaurant-list',
+                            arguments: restaurant);
+                      },
+                      child: const Text(
+                        "Filtrar",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
                       ),
-                      backgroundColor: Colors.deepPurple,
-                      shape: const RoundedRectangleBorder()),
-                  onPressed: () {
-                    var categories = state.filter.categoryFilter
-                        .where((filter) => filter.value)
-                        .map((filter) => filter.category.name)
-                        .toList();
-
-                    var price = state.filter.priceFilter
-                        .where((filter) => filter.value)
-                        .map((filter) => filter.price.price)
-                        .toList();
-                    List<Restaurant> restaurant = Restaurant.restaurants
-                        .where(
-                          (restaurant) => categories.any(
-                            (category) => restaurant.tags.contains(category),
-                          ),
-                        )
-                        .where(
-                          (restaurant) => price.any(
-                            (price) => restaurant.priceCategory.contains(price),
-                          ),
-                        )
-                        .toList();
-
-                    Navigator.of(context)
-                        .pushNamed('/restaurant-list', arguments: restaurant);
-                  },
-                  child: const Text(
-                    "Filtrar",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                );
-              } else {
-                return const Center(
-                  child: Text("Erro"),
-                );
-              }
-            },
-          )
-        ]),
-      )),
+                    );
+                  } else {
+                    return const Center(
+                      child: Text("Erro"),
+                    );
+                  }
+                },
+              )
+            ]),
+          )),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(

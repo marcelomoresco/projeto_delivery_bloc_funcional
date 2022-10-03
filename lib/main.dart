@@ -1,14 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:projeto_delivery_bloc/src/infra/repositories/geolocation/geolocation_repository.dart';
 import 'package:projeto_delivery_bloc/src/infra/repositories/places/places_repository.dart';
 import 'package:projeto_delivery_bloc/src/presentator/blocs/cart_bloc/cart_bloc.dart';
 import 'package:projeto_delivery_bloc/src/presentator/blocs/filter_bloc/filters_bloc.dart';
-import 'package:projeto_delivery_bloc/src/presentator/blocs/geolocation_bloc/geolocation_bloc.dart';
+import 'package:projeto_delivery_bloc/src/presentator/blocs/location_bloc/location_bloc.dart';
 import 'package:projeto_delivery_bloc/src/presentator/blocs/place_autocomplete/autocomplete_bloc.dart';
-import 'package:projeto_delivery_bloc/src/presentator/blocs/place_bloc/place_bloc.dart';
 import 'package:projeto_delivery_bloc/src/presentator/config/routes/app_router.dart';
 import 'package:projeto_delivery_bloc/src/presentator/views/home/home_page.dart';
+import 'package:projeto_delivery_bloc/src/presentator/views/location/location_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,21 +28,18 @@ class MyApp extends StatelessWidget {
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<GeolocationBloc>(
-              create: (_) => GeolocationBloc(
-                  geolocationRepository: context.read<GeolocationRepository>())
-                ..add(
-                  LoadGeolocationEvent(),
-                )),
+          BlocProvider<LocationBloc>(
+            create: (context) => LocationBloc(
+                placesRepository: context.read<PlacesRepository>(),
+                geolocationRepository: context.read<GeolocationRepository>())
+              ..add(
+                const LocationLoadMapEvent(),
+              ),
+          ),
           BlocProvider<AutocompleteBloc>(
             create: (_) => AutocompleteBloc(
               placesRepository: context.read<PlacesRepository>(),
             )..add(LoadAutoCompleteEvent()),
-          ),
-          BlocProvider<PlaceBloc>(
-            create: (_) => PlaceBloc(
-              placesRepository: context.read<PlacesRepository>(),
-            ),
           ),
           BlocProvider<FiltersBloc>(
             create: (_) => FiltersBloc()
@@ -54,7 +52,7 @@ class MyApp extends StatelessWidget {
               ..add(
                 LoadCartEvent(),
               ),
-          )
+          ),
         ],
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,

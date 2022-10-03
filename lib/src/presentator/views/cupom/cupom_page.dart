@@ -19,7 +19,12 @@ class CupomPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Cupom")),
+      appBar: AppBar(
+        title: const Text("Cupom"),
+        backgroundColor: Colors.deepPurple,
+        centerTitle: true,
+        elevation: 0,
+      ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(18.0),
         child: ClipRRect(

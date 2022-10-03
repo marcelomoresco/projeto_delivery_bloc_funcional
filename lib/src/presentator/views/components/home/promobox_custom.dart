@@ -15,7 +15,6 @@ class PromoBox extends StatelessWidget {
           width: MediaQuery.of(context).size.width - 40,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              color: Colors.red,
               image: DecorationImage(
                   image: NetworkImage(promo.imgUrl), fit: BoxFit.cover)),
         ),
@@ -34,19 +33,22 @@ class PromoBox extends StatelessWidget {
                 right: 125,
                 top: 10,
               ),
-              child: Column(children: [
-                Text(
-                  promo.title,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Text(promo.description, style: TextStyle(color: Colors.white))
-              ]),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      promo.title,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(promo.description,
+                        style: const TextStyle(color: Colors.white))
+                  ]),
             ),
           ),
         ),

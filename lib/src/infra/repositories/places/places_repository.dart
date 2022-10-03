@@ -7,7 +7,7 @@ import '../../../domain/entities/place_autocomplete_model.dart';
 import '../../../domain/entities/place_model.dart';
 
 class PlacesRepository extends IBasePlacesRepository {
-  final String key = 'AIzaSyCqADjIYbSkoJ7JwQCmd6OajD-JvcfHdlk';
+  final String key = 'SUA CHAVE!!';
   final String types = 'geocode';
 
   @override
